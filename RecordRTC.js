@@ -5288,7 +5288,7 @@ function MultiStreamsMixer(arrayOfMediaStreams, elementClass) {
 
     this.appendStreams = function(streams) {
         if (!streams) {
-        throw 'First parameter is required.';
+            throw 'First parameter is required.';
         }
 
         if (!(streams instanceof Array)) {
@@ -5296,7 +5296,7 @@ function MultiStreamsMixer(arrayOfMediaStreams, elementClass) {
         }
 
         arrayOfMediaStreams.concat(streams);
-        streams.forEach(stream => {
+        streams.forEach(function(stream) {
             if (stream.getTracks().filter(function (t) {
                 return t.kind === 'video';
             }).length) {
