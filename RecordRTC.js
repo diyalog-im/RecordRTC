@@ -5287,8 +5287,8 @@ function MultiStreamsMixer(arrayOfMediaStreams, elementClass) {
     }
 
     this.appendStreams = function(streams) {
-        if (!streams) {
-            throw 'First parameter is required.';
+      if (!streams) {
+        throw 'First parameter is required.';
         }
 
         if (!(streams instanceof Array)) {
@@ -5296,7 +5296,9 @@ function MultiStreamsMixer(arrayOfMediaStreams, elementClass) {
         }
 
         arrayOfMediaStreams.concat(streams);
-        streams.forEach(function(stream) {
+        for (var index = 0; index < streams.length; index++) {
+            const stream = streams[index];
+
             if (stream.getTracks().filter(function (t) {
                 return t.kind === 'video';
             }).length) {
@@ -5312,7 +5314,7 @@ function MultiStreamsMixer(arrayOfMediaStreams, elementClass) {
                 audioSource.connect(this.audioDestination);
                 self.audioSources.push(audioSource);
             }
-        });
+        }
     };
 
     this.releaseStreams = function() {
