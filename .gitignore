@@ -11,3 +11,20 @@ bower_components
 package-lock.json
 
 .idea
+.idea/$PRODUCT_WORKSPACE_FILE$
+
+.idea/codeStyles
+
+.idea/dbnavigator.xml
+
+.idea/encodings.xml
+
+.idea/misc.xml
+
+.idea/modules.xml
+
+.idea/RecordRTC.iml
+
+.idea/sbt.xml
+
+.idea/vcs.xml
