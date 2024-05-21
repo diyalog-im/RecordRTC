@@ -2252,6 +2252,10 @@ function MediaStreamRecorder(mediaStream, config) {
             if (mediaRecorder.state !== 'inactive' && mediaRecorder.state !== 'stopped') {
                 mediaRecorder.stop();
             }
+
+            if (typeof config.onInternalError === 'function') {
+                config.onInternalError(error);            
+            }            
         };
 
         if (typeof config.timeSlice === 'number') {
@@ -5629,6 +5633,10 @@ function MultiStreamRecorder(arrayOfMediaStreams, options) {
      */
     this.getMixer = function() {
         return mixer;
+    };
+
+    this.getAllStates = function() {
+        return mediaRecorder.getAllStates();
     };
 
     // for debugging
